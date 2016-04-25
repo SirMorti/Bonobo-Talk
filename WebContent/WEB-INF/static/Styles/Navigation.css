@@ -1,0 +1,45 @@
+div#navigation{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	display: table;
+	float: right;
+}/*Parent of the container for the navigation items*/
+
+div#accNlogin{
+	width: 20%;
+	height: 100%;
+	float: right;
+}/*Container for the login section*/
+
+div#navItems>div{
+	position: relative;	
+	float: left;
+}
+
+div#navigation>div{
+	width: 100%;
+	height: 100%;
+}/*Container for the navigation items*/
+
+div#navigation>div>div{
+	height: 100%;
+	width: 100px;
+	display: table;
+}/*Navigation items*/
+
+a.navItem{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	color: white;
+	text-decoration: none;
+	transition: background-color 0.2s;
+	cursor: pointer;
+}/*Styling of the navigation Item links*/
+
+a.navItem:hover{
+	transition: background-color 0.3s;
+	border-top: 4px solid;
+}/*Styling of the hovered navigation Item*/

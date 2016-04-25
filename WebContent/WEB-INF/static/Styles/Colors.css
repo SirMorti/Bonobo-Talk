@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {	
+	/*background-color: rgba(233,242,214,1);*/
+	background-color: rgba(29,29,30,1);
+}
+
+div#content{
+	background-color: #FCFCFC;	
+}
+
+div#navContainer{
+	background-color: rgba(226,91,69,1);
+}
+
+a.navItem:hover{
+	background-color: rgba(226,70,50,1);
+	border-top-color: white;
+}
+
+div#loginContainer>div>a:hover{
+	background-color: #2C3744;
+	border-top-color: white;
+}
+
+div#footer>ul>li>a{
+	color: rgba(226,91,69,1);
+}
+
+div#popupContainer{
+	background-color: rgba(24,30,37,0.9);
+}
+
+div#popupLogin{
+	background-color: #FFFFFF;
+}
+
+#loginButoons>div{
+	background: none;
+	background-color: #ffffff;
+	color: black;
+}
+
+div.inactiveBtn{
+	background-color: #BCBCBC;
+	color: #8F8F8F;
+}
+
+div#loginInfo{
+	background-color: rgba(226,91,69,1);
+}
+
+div#navigation{
+	color: #fff;	
+}
+
+div#account:hover{
+	background-color: rgba(226,70,50,1);
+	border-top-color: white;
+}

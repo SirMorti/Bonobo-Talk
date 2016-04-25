@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document */
+
+div#content{
+	text-align: center;
+}
+
+div#signup{
+	width: 500px;
+	height:  350px;
+	position: relative;
+	display: inline-block;
+	border: 1px solid grey;
+	margin: 20px;
+}/*login/signup section*/
+
+div#signupFormWrapp>form>p{
+	text-align: center;
+}/*central alignment of the p's*/
+
+div#signupFormWrapp{
+	height: 100%;
+	width: 100%;
+	display: inline-table;
+}
+
+div#signupFormWrapp>form{
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+div#signupFormWrapp>form>a{
+	text-decoration: none;
+	background-color: rgba(29,29,30,1);
+	color: white;
+	padding: 5px;
+}
+
+div#signupFormWrapp>form>a:hover{
+	color: rgba(226,70,50,1);
+}
+
+input.subSignup{
+	border: none;
+	background: none;
+	background-color: rgba(226,91,69,1);
+	outline: none;
+	width: 160px;
+	height: 30px;
+	color: white;
+	font-size: 14px;
+	cursor: pointer;
+}/*Styling of the submit button*/
+
+input.subSignup:hover{
+	background-color: rgba(226,70,50,1);
+}

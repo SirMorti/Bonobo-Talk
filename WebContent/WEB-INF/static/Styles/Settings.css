@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+
+div#drdwSettings{
+	width: 200px; 
+	position: absolute; 
+	top: 65px; 
+	right:0px; 
+	background-color: #fff;
+	border: 1px solid grey; 
+	z-index: 99;
+	overflow: hidden;
+}
+
+div#drdwSettings>*{
+	position: relative;
+}
+
+ul#settingsList{
+	color: grey;
+	list-style: none;
+}
+
+ul#settingsList>li>a{
+	text-decoration: none;
+	color: grey;
+}

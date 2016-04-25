@@ -1,0 +1,85 @@
+div#popupLogin{
+	width: 750px;
+	height: 400px;
+	z-index: 999999;
+	overflow: hidden;
+	margin: auto;
+	border-radius: 7px;
+	position: relative;
+	top:25%;
+}/*Styling of the Popup login itself*/
+
+div#loginInfo{
+	width: 45%;
+	height: 100%;
+}/*info section of the popuplogin*/
+
+div#loginFormContainer{
+	width: 55%;
+	height: 100%;
+	display: table;
+}/*Conatining the login form and the switch-button to switch between signup and login*/
+
+div#popupLogin>div{
+	float:left;
+}/*left aligning of the containers*/
+
+div#login{
+	width: 100%;
+	height:  335px;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;	
+}/*login/signup section*/
+
+div#login>form>p{
+	text-align: center;
+}/*central alignment of the p's*/
+
+div#toggleButtons>div{
+	height: 65px;
+	line-height: 65px;
+	width: 50%;	
+	text-align: center;
+	float: left;
+	cursor: pointer;
+}/*styling of the both buttons*/
+
+div#toggleButtons>div>span{
+	line-height: normal;
+}
+
+input.subLogSign{
+	border: none;
+	background: none;
+	background-color: rgba(226,91,69,1);
+	outline: none;
+	width: 50%;
+	height: 30px;
+	color: white;
+	font-size: 13px;
+	cursor: pointer;
+}/*Styling of the submit button*/
+
+input.subLogSign:hover{
+	background-color: rgba(226,70,50,1);
+}
+
+fieldset#registerLinkWrap{
+	margin:  8px auto;
+	border: none; 
+	border-top: 1px solid grey; 
+	width: 330px;
+	padding: 20px;
+}
+
+fieldset#registerLinkWrap>a{
+	text-decoration: none;
+	background-color: rgba(29,29,30,1);
+	color: white;
+	padding: 5px;
+}
+
+fieldset#registerLinkWrap>a:hover{
+	color: rgba(226,70,50,1);
+}
