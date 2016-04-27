@@ -16,6 +16,17 @@ var username = "${User.username}"
 <link rel="stylesheet" href="${cp}/static/Styles/Colors.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="${cp}/static/Scripts/functions.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$('#chatBox').keypress(function(event){
+		var cb = document.getElementById("chatBox").value;
+	    if (cb == "")
+	   		if (event.keyCode == 10 || event.keyCode == 13) 
+	        	event.preventDefault();
+  	});
+});
+</script>
 </head>
 <body ng-app="chatApp">
 	<div id="mainContainer">
@@ -24,13 +35,13 @@ var username = "${User.username}"
 	       <div id="accNlogin">
 	           <div id="settings">     
 	               <img src="${cp}/static/Pictures/Settings.png" alt="Settings"/>
-	                   <!--div id="drdwSettings"></div-->
+	                   <div id="drdwSettings"></div>
 	           </div>
 	               <div id="accWrapper" style="overflow: hidden; height: 100%;">
 	                   <div id="account">
 	                       <img id="profilePic" src="${cp}/static/Pictures/Default.jpg" alt="ProfilePic"/>
 	                       <span id="helper"></span>
-	                       <a id="accLink" href="">${User.username}</a>        
+	                       <a id="accLink" href="profile">${User.username}</a>        
 	                   </div>
 	               </div>
 	       </div>
@@ -49,10 +60,10 @@ var username = "${User.username}"
                     </div>
                     <div id="formWrapp">
                         <form ng-submit="addMessage()" name="messageForm">
-                            <input type="text" placeholder="Write a message..." ng-model="message" />
+                            <input id="chatBox" type="text" placeholder="Write a message..." ng-model="message" autocomplete="off" />
                             <div class="info">
                                 <span class="count" ng-bind="max - message.length" ng-class="{danger: message.length > max}">140</span>
-                                <button id="sendButton" ng-disabled="message.length > max || message.length === 0">Send</button>
+                                <button id="sendButton" ng-disabled="message.length > max || message.length == 0">Send</button>
                             </div>
                         </form>
                     </div>
