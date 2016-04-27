@@ -47,6 +47,7 @@ public class WebchatController
 		        //model.addAttribute("Users", Users);
 		    	if(getPrincipal() != null)
 		    	{
+			    	service.leaveAllChatrooms(getPrincipal());
 		    		return "redirect:/startseite";
 		    	}
 		        return "index";
@@ -95,6 +96,7 @@ public class WebchatController
 		        {
 		        	return "redirect:/index";
 		        }
+		        service.leaveAllChatrooms(user);
 		    	model.addAttribute("User", user);
 		        return "startseite";
 		    }
@@ -106,6 +108,7 @@ public class WebchatController
 		        {
 		        	return "redirect:/index";
 		        }
+		        service.leaveAllChatrooms(user);
 		    	model.addAttribute("User", user);
 		        return "profile";
 		    }
@@ -117,6 +120,7 @@ public class WebchatController
 		        {
 		        	return "redirect:/index";
 		        }
+		        service.leaveAllChatrooms(user);
 		    	model.addAttribute("User", user);
 		        model.addAttribute("Chatrooms", chatroomService.getAllChatrooms());
 		        model.addAttribute("Categories", chatroomService.getAllCategories());
@@ -136,7 +140,8 @@ public class WebchatController
 		    	{
 		    		return "redirect:/chatselect";
 		    	}
-		    	//service.joinChatroom(currUser.getId(), currChatroom);
+		        service.leaveAllChatrooms(user);
+		    	service.joinChatroom(user.getId(), currChatroom);
 		    	model.addAttribute("Chatroom", currChatroom);
 		    	model.addAttribute("User", user);
 		    	return "chat";
@@ -145,7 +150,12 @@ public class WebchatController
 		    @RequestMapping(value = {"/faq"}, method = RequestMethod.GET)
 		    public String showFAQ(ModelMap model)
 		    {
-		    	model.addAttribute("User", getPrincipal());
+		    	User user = getPrincipal();
+		    	if(user != null)
+		    	{
+		    		service.leaveAllChatrooms(user);
+		    	}
+		    	model.addAttribute("User", user);
 		    	return "faq";
 		    }
 		   
@@ -153,7 +163,7 @@ public class WebchatController
 		        String userName = null;
 		        User user;
 		        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		        //TODO: müll nach username suchen
+		        //TODO: mÃ¼ll nach username suchen
 		        if (principal instanceof UserDetails) {
 		            userName = ((UserDetails)principal).getUsername();
 		            user = service.findUserByUsername(userName);
