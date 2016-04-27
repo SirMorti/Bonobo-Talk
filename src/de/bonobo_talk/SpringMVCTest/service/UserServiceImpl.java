@@ -120,4 +120,13 @@ public class UserServiceImpl implements UserService {
 		return listUsernames;
 	}
 	
+	@Override
+	public void leaveAllChatrooms(User user) {
+		User entity = dao.findById(user.getId());
+		if(entity != null)
+		{
+			entity.setJoinedChatrooms(new HashSet<Chatroom>());
+		}
+	}
+	
 }
