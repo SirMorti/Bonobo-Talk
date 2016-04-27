@@ -19,5 +19,6 @@ public interface UserService {
     void joinChatroom(int userID, Chatroom chatroom);
     void leaveChatroom(int userID, Chatroom chatroom);
     Set<String> getAllUsernames();
+    void leaveAllChatrooms(User user);
      
 }
