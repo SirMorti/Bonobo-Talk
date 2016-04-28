@@ -23,6 +23,7 @@ var cp = "<%=request.getContextPath()%>";
             <div id="accNlogin">
                 <div id="settings">  	
                     <img src="${cp}/static/Pictures/Settings.png" alt="Settings"/>
+                    <div id="drdwSettings"></div>
                 </div>
                 <div id="accWrapper" style="overflow: hidden; height: 100%;">
                     <div id="account">

@@ -5,12 +5,13 @@
 <c:set var="cp" value="${pageContext.request.servletContext.contextPath}" scope="request" />
 <html>
 <head>
-<script type="text/javascript">var cp = "<%=request.getContextPath()%>";</script>
 <meta charset="utf-8">
 <title>Bonobo-Talk</title>
+<script type="text/javascript">var cp = "<%=request.getContextPath()%>";</script>
 <link rel="stylesheet" href="${cp}/static/Styles/Style.css">
+<link rel="stylesheet" href="${cp}/static/Styles/Navigation.css">
 <link rel="stylesheet" href="${cp}/static/Styles/Colors.css">
-<link rel="stylesheet" type="text/css" href="${cp}/static/Styles/Profile.css">
+<link rel="stylesheet" type="text/css" href="${cp}/static/Styles/Popuplogin.css">
 <script src="${cp}/static/Scripts/jquery-2.2.1.min.js"></script>
 <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script-->
 <script src="${cp}/static/Scripts/functions.js"></script>
@@ -28,7 +29,7 @@
                     <div id="account">
                         <img id="profilePic" src="${cp}/static/Pictures/Default.jpg" alt="ProfilePic"/>
                         <span id="helper"></span>
-                        <a id="accLink" href="profile">${User.username}</a>     	
+                        <a id="accLink" href="">${User.username}</a>     	
                     </div>
                 </div>
             </div>

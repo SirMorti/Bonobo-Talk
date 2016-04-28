@@ -2,7 +2,7 @@
   angular.module("chatApp.controllers").controller("ChatCtrl", function($scope, ChatService) {
     $scope.messages = [];
     $scope.message = "";
-    $scope.max = 140;
+    $scope.max = 300;
     $scope.addMessage = function() {
       ChatService.send($scope.message);
       $scope.message = "";

@@ -22,11 +22,11 @@
 				<div id="accNlogin">
 					<div id="settings">  	
 						<img src="${cp}/static/Pictures/Settings.png" alt="Settings"/>
-						<!--div id="drdwSettings"></div-->
+						<div id="drdwSettings"></div>
 					</div>
 					<div id="accWrapper" style="overflow: hidden; height: 100%;">
 						<div id="account">
-							<img id="profilePic" src="{cp}/static/Pictures/Default.jpg" alt="ProfilePic"/>
+							<img id="profilePic" src="${cp}/static/Pictures/Default.jpg" alt="ProfilePic"/>
 							<span id="helper"></span>
 							<a id="accLink" href="">Username</a>     	
 						</div>

@@ -39,8 +39,8 @@ public class Chatroom
 	@NotEmpty
     @Column(name = "SSN", unique=true, nullable = false)
     private String ssn;
-    
-    @ManyToMany(mappedBy = "joinedChatrooms")
+
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "joinedChatrooms",cascade = CascadeType.ALL)
     private Set<User> activeUser;
     
     public Chatroom()

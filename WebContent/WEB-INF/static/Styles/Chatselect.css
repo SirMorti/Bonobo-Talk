@@ -20,7 +20,7 @@ ul.subTree>li{
 	list-style-type: none;
 	border-left: 2px dotted rgba(226,91,69,1);
 	border-bottom: 2px dotted rgba(226,91,69,1);
-	margin: 12px 0px;
+	margin: 10px 0px;
 	padding-left: 16px;
 	display: table;
 	max-width: 30px;
@@ -38,6 +38,7 @@ ul.subTree>li>form>input{
 	padding: 8px;
 	margin-bottom: -8px;
 	border: none;
+	outline-color: rgba(226,70,50,1);
 }
 
 ul.subTree>li>form>input:hover{
@@ -50,6 +51,7 @@ ul#treeView>li>div{
 	padding: 8px 25px;
 	background-color: rgba(226,91,69,1);
 	color: white;
+	margin-top: 5px;
 }
 
 ul#treeView>li>div:hover{

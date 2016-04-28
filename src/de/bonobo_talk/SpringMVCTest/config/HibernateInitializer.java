@@ -40,7 +40,7 @@ public class HibernateInitializer {
         dataSource.setDriverClassName(environment.getRequiredProperty("driverClassName"));
         dataSource.setUrl(environment.getRequiredProperty("url"));
         dataSource.setUsername("root");
-        dataSource.setPassword("123456");
+        dataSource.setPassword("");
         return dataSource;
     }
      

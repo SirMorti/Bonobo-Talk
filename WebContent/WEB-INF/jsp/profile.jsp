@@ -58,6 +58,12 @@
         				<legend>Geburtsdatum:</legend>
         				<P>${User.dateOfBirth}</P>
         			</fieldset>
+        			<fieldset>
+        				<legend>Joined Chatrooms</legend>
+        				<c:forEach items="${User.joinedChatrooms}" var="chatroom">
+        					<p>${chatroom.chatroomname }</p>
+        				</c:forEach>
+        			</fieldset>
         		</div>
             </div>
     	</div>

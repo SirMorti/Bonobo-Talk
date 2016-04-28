@@ -163,7 +163,7 @@ public class WebchatController
 		        String userName = null;
 		        User user;
 		        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		        //TODO: mÃ¼ll nach username suchen
+		        //TODO: müll nach username suchen
 		        if (principal instanceof UserDetails) {
 		            userName = ((UserDetails)principal).getUsername();
 		            user = service.findUserByUsername(userName);

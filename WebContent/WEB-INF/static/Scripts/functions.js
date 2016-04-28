@@ -1,9 +1,11 @@
 // JavaScript Document
 $(document).ready(function(){
-  
+	
+	var mouseInside = false;
+	
    	$('#navigation').load( cp+"/Templates/navigation" );
 	$('#footer').load(cp+"/Templates/footer");
-	$('#drdwSettings').load(cp+"/Templates/settings"); 	///////////////diese zeile ist hinzu gekommen
+	$('#drdwSettings').load(cp+"/Templates/settings"); 
 	$("#drdwSettings").hide();					
 	
 	$("#loginLink").click(function(event) {
@@ -57,4 +59,15 @@ $(document).ready(function(){
 		if($("#drdwSettings").is(":hidden")) $("#drdwSettings").show();
 		else $("#drdwSettings").hide();
 	});
+	
+	$("#drdwSettings").hover(function(){ 
+		mouseInside=true; 
+    }, function(){ 
+    	mouseInside=false; 
+    });
+	
+	$(window).mouseup(function(){ 
+        if(! mouseInside) $("#drdwSettings").hide();
+    });
+	
 });

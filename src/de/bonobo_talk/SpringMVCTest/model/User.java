@@ -81,14 +81,14 @@ public class User {
              inverseJoinColumns = { @JoinColumn(name = "AccountRole_Id") })
     private Set<AccountRole> accountRoles = new HashSet<AccountRole>();    
     
-    @ManyToMany(fetch=FetchType.LAZY, cascade={CascadeType.ALL})
+    @ManyToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
    	@JoinTable(name = "JOINEDCHATROOMS", joinColumns = { 
    			@JoinColumn(name = "USER_ID", nullable = false, updatable = true) }, 
    			inverseJoinColumns = { @JoinColumn(name = "CHATROOM_ID", nullable = false, updatable = true) }
    	)
     private Set<Chatroom> joinedChatrooms;
        
-    @ManyToMany(fetch=FetchType.LAZY, cascade={CascadeType.ALL})
+    @ManyToMany(fetch=FetchType.EAGER, cascade={CascadeType.ALL})
 	@JoinTable(name = "FAVOURITECHATROOMS", joinColumns = { 
 			@JoinColumn(name = "USER_ID", nullable = false, updatable = true) }, 
 			inverseJoinColumns = { @JoinColumn(name = "CHATROOM_ID", nullable = false, updatable = true) }
