@@ -18,15 +18,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
- 
-
-
-
-
-
-
-
-
 import org.hibernate.validator.constraints.NotEmpty;
  
 @Entity
@@ -38,32 +29,39 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
+    @NotEmpty(message = "Bitte einen Usernamen eingeben.")
     @Size(min=3, max=50)
     @Column(name = "USERNAME", nullable = false)
     private String username;
  
     @NotNull
+    @NotEmpty(message = "Bitte ein Passwort eingeben.")
     @Column(name = "PASSWORD", nullable = false)
     private String password;
     
     @Size(min=3, max=50)
+    @NotEmpty(message = "Bitte eine EMail-Adresse eingeben.")
     @Column(name = "EMAIL", nullable = false)
     private String email;
     
     @Size(min=3, max=50)
+    @NotEmpty(message = "Bitte ihren Vornamen eingeben.")
     @Column(name = "FIRSTNAME", nullable = false)
     private String firstname;
     
     @Size(min=3, max=50)
+    @NotEmpty(message = "Bitte ihren Nachnamen eingeben.")
     @Column(name = "LASTNAME", nullable = false)
     private String lastname;
     
     @Size(min=3, max=50)
+    @NotEmpty(message = "Bitte ihr Geburtsdatum eingeben.")
     @Column(name = "DATEOFBIRTH", nullable = false)
     private String dateOfBirth;
     
     
     @Column(name = "GENDER", nullable = false)
+    @NotEmpty(message = "Bitte ihr Geschlecht eingeben.")
     private String gender;
 
     @NotNull

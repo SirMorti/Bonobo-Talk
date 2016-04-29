@@ -37,7 +37,7 @@ public class ChatroomDAOImpl extends AbstractDao<Integer, Chatroom> implements C
 	@Override
 	public List<Chatroom> getAllChatrooms() {
 		// TODO Auto-generated method stub
-		Criteria criteria = createEntityCriteria();
+		Criteria criteria = getSession().createCriteria(Chatroom.class);
         return (List<Chatroom>) criteria.list();
 	}
 

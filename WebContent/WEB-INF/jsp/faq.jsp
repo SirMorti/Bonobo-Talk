@@ -6,21 +6,22 @@
 <html>
 <head>
 	<title>Bonobo-Talk</title>
+	<script type="text/javascript">var cp = "<%=request.getContextPath()%>";</script>
 	<link rel="stylesheet" href="${cp}/static/Styles/Style.css">
 	<link rel="stylesheet" href="${cp}/static/Styles/Navigation.css">
 	<link rel="stylesheet" href="${cp}/static/Styles/Colors.css">
 	<link rel="stylesheet" href="${cp}/static/Styles/FAQ.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="${cp}/static/Scripts/faq.js"></script>
 	<script src="${cp}/static/Scripts/jquery-2.2.1.min.js"></script>
 	<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script-->
 	<script src="${cp}/static/Scripts/functions.js"></script>
+	<script src="${cp}/static/Scripts/faq.js"></script>
 </head>
 <body>
 	<div id="mainContainer">    
 	    <div id="navContainer">
-	        <c:if test="${User != null }">
 	        	<div id="logo"><img src="${cp}/static/Pictures/NewLogo.png" alt="LOGO"/></div>
+	      		<c:if test="${User != null }">
 	            <div id="accNlogin">
 	                <div id="settings">  	
 	                    <img src="${cp}/static/Pictures/Settings.png" alt="Settings"/>
@@ -44,7 +45,6 @@
 						<div class="header">Was ist Bonobo-Talk?</div>
 						<ul class="drpdwnArticle">
 							<li class="article-list">Was ist Bonobo-Talk?</li>
-							<!--Eventuell sich öffnende Textfelder, die Begriffserklärungen beinhalten(Textform)-->
 							<li class="article-list">Was kann Bonobo-Talk?</li>
 							<li class="article-list">Wie kann ich ein Profil erstellen?</li>
 						</ul>
@@ -68,7 +68,7 @@
 					<div class="faqWrapper">
 						<div class="header">Einstellungen</div>
 						<ul class="drpdwnArticle">
-							<li class="article-list">Was für Einstellungen kann ich vornehmen?</li>
+							<li class="article-list">Was f�r Einstellungen kann ich vornehmen?</li>
 							<li class="article-list">Kann ich bevorzugte Chatthemen einstellen?</li>
 							<li class="article-list">Wie kann ich einen Chat verwalten?</li>
 						</ul>
@@ -85,25 +85,28 @@
 				<div id="rightContent">
 				    <div>
 			           <form id="search" method="post" action="showTicket">
-			               <label>Suche</label>        <input type="text" name=betreff value="" class="textInput2">
-			               <input id="sendForm" type="submit" value="Senden"/>
+			               <label>Suche</label>        
+			               <input type="text" name=betreff value="" class="textInput1" style="width: 50%;">
+			               <input id="sendForm" type="submit" value="Senden" />
 			               <input type="hidden" name="${_csrf.parameterName}"   value="${_csrf.token}" />
 			           </form>
-			        </div>  
-				    <table>
-		                 <c:forEach items="${faqItems}" var="faqItem">
-		                    <tr>
-		                        <td>Betreff:</td><td>${faqItem.betreff }</td>
-		                    </tr>
-		                    <tr>
-		                        <td>Inhalt:</td><td>${faqItem.inhalt }</td>
-		                    </tr>
-		                    <tr>
-		                        <td>Kontakt:</td><td>${faqItem.getKontakt().e_mail }</td>
-		                    </tr>
-		                </c:forEach>
-		           </table>		           
-                   <div><a href = "contact">Neuen FAQ-Eintrag erstellen</a></div>
+			        </div>
+			        <div ><a href = "contact">Neuen FAQ-Eintrag erstellen</a></div>
+			        <div id="ticketOutput">
+					    <table>
+			                 <c:forEach items="${faqItems}" var="faqItem">
+			                    <tr>
+			                        <td>Betreff:</td><td>${faqItem.betreff }</td>
+			                    </tr>
+			                    <tr>
+			                        <td>Inhalt:</td><td>${faqItem.inhalt }</td>
+			                    </tr>
+			                    <tr>
+			                        <td>Kontakt:</td><td>${faqItem.getKontakt().e_mail }</td>
+			                    </tr>
+			                </c:forEach>
+			           </table>
+		           </div>  		           
 				</div>
             </div>
     	</div>

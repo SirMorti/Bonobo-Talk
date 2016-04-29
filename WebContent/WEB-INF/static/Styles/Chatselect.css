@@ -52,6 +52,7 @@ ul#treeView>li>div{
 	background-color: rgba(226,91,69,1);
 	color: white;
 	margin-top: 5px;
+	min-width: 150px;
 }
 
 ul#treeView>li>div:hover{

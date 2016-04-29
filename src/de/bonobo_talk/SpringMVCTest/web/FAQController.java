@@ -87,17 +87,6 @@ public class FAQController {
 		return "redirect:faq";
     }
 	
-    @RequestMapping(value = { "/contact" },method = RequestMethod.GET)
-    public String addContact(ModelMap model) {
-    	Kontakt contact = new Kontakt();
-    	FAQItem faqItem = new FAQItem();
-    	
-    	model.addAttribute("contact", contact);
-    	model.addAttribute("faqItem", faqItem);
-    	
-        return "contact";
-    }
-	
     @RequestMapping(value = { "/contact" },method = RequestMethod.POST)
     public String newContactFAQ( ContactFaqContainer container,
             ModelMap model)

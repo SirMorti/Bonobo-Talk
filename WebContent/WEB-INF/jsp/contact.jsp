@@ -7,6 +7,7 @@
 	<head>
 	<meta charset="utf-8">
 	<title>Bonobo-Talk</title>
+	<script type="text/javascript">var cp = "<%=request.getContextPath()%>";</script>
 	<link rel="stylesheet" href="${cp}/static/Styles/Style.css">
 	<link rel="stylesheet" href="${cp}/static/Styles/Navigation.css">
 	<link rel="stylesheet" href="${cp}/static/Styles/Colors.css">
@@ -19,20 +20,22 @@
 		<div id="mainContainer">
 			<div id="navContainer">
 				<div id="logo"><img src="${cp}/static/Pictures/NewLogo.png" alt="LOGO"/></div>
-				<div id="accNlogin">
-					<div id="settings">  	
-						<img src="${cp}/static/Pictures/Settings.png" alt="Settings"/>
-						<div id="drdwSettings"></div>
-					</div>
-					<div id="accWrapper" style="overflow: hidden; height: 100%;">
-						<div id="account">
-							<img id="profilePic" src="${cp}/static/Pictures/Default.jpg" alt="ProfilePic"/>
-							<span id="helper"></span>
-							<a id="accLink" href="">Username</a>     	
+				<c:if test="${User != null}">
+					<div id="accNlogin">
+						<div id="settings">  	
+							<img src="${cp}/static/Pictures/Settings.png" alt="Settings"/>
+							<div id="drdwSettings"></div>
+						</div>
+						<div id="accWrapper" style="overflow: hidden; height: 100%;">
+							<div id="account">
+								<img id="profilePic" src="${cp}/static/Pictures/Default.jpg" alt="ProfilePic"/>
+								<span id="helper"></span>
+								<a id="accLink" href="">${User.username}</a>     	
+							</div>
 						</div>
 					</div>
-				</div>
-				<div id="navigation"></div>
+					<div id="navigation"></div>
+				</c:if>
 			</div>
 			<div id="contentContainer">
 				<div id="content">

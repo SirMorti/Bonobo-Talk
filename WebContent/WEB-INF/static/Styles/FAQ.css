@@ -3,15 +3,13 @@
 
 div#mainblock {
 	padding: 10px;
-	min-height: 480px;
-	height: 100%;
-	/*background-color: #DDDDDD;*/
     display: inline-block;
 }
 
 div#rightContent {
-	min-height: 480px;
-    display: inline-block;
+    display: inline-table;
+    vertical-align: top;
+    padding: 10px;
 }
 
 div.header{
@@ -48,4 +46,35 @@ ul.drpdwnArticle{
 	margin:0;
 	display: none;
 	border: 2px solid #708090;
+}
+
+input#sendForm{
+	border: none;
+	text-decoration: none;
+	background-color: rgba(29,29,30,1);
+	color: white;
+	padding: 5px;
+}
+
+input#sendForm:hover{
+	color: rgba(226,70,50,1);
+}
+
+div#ticketOutput{
+	max-height: 200px;
+	min-height: 200px;
+	width: 400px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+div#ticketOutput>table{
+	table-layout: fixed;
+	max-width: 400px;
+}
+
+td{
+	word-wrap:break-word;
+	word-break: break-all;
+	max-width: 300px;
 }

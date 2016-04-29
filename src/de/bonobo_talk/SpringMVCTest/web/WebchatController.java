@@ -25,6 +25,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.portlet.ModelAndView;
 
 import de.bonobo_talk.SpringMVCTest.model.Chatroom;
+import de.bonobo_talk.SpringMVCTest.model.FAQItem;
+import de.bonobo_talk.SpringMVCTest.model.Kontakt;
 import de.bonobo_talk.SpringMVCTest.model.User;
 import de.bonobo_talk.SpringMVCTest.service.ChatroomService;
 import de.bonobo_talk.SpringMVCTest.service.UserService;
@@ -42,9 +44,6 @@ public class WebchatController
 		 
 		    @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
 		    public String showStartsite(ModelMap model) {
-		 
-		        //List<User> Users = service.getAllUser();
-		        //model.addAttribute("Users", Users);
 		    	if(getPrincipal() != null)
 		    	{
 			    	service.leaveAllChatrooms(getPrincipal());
@@ -71,13 +70,12 @@ public class WebchatController
 		    }
 
 		    @RequestMapping(value = { "/new" }, method = RequestMethod.POST)
-		    public String saveUser(@Valid User User, BindingResult result,
+		    public String saveUser(@Valid @ModelAttribute("User") User User, BindingResult result,
 		            ModelMap model) {
 		 
 		        if (result.hasErrors()) {
 		            return "registration";
 		        }
-		 
 
 		        if(service.findUserByUsername(User.getUsername())!= null){
 		            return "registration";
@@ -123,6 +121,9 @@ public class WebchatController
 		        service.leaveAllChatrooms(user);
 		    	model.addAttribute("User", user);
 		        model.addAttribute("Chatrooms", chatroomService.getAllChatrooms());
+		        for (Chatroom chatroom : chatroomService.getAllChatrooms()) {
+					System.out.println(chatroom.getChatroomname());
+				}
 		        model.addAttribute("Categories", chatroomService.getAllCategories());
 		        return "chatselect";
 		    }
@@ -135,14 +136,13 @@ public class WebchatController
 		        {
 		        	return "redirect:/index";
 		        }
-		    	Chatroom currChatroom = chatroomService.findById(chatroomId);
-		    	if(currChatroom == null)
+		    	if(chatroomService.findById(chatroomId) == null)
 		    	{
 		    		return "redirect:/chatselect";
 		    	}
 		        service.leaveAllChatrooms(user);
-		    	service.joinChatroom(user.getId(), currChatroom);
-		    	model.addAttribute("Chatroom", currChatroom);
+		    	service.joinChatroom(user.getId(), chatroomService.findById(chatroomId));
+		    	model.addAttribute("Chatroom", chatroomService.findById(chatroomId));
 		    	model.addAttribute("User", user);
 		    	return "chat";
 		    }
@@ -157,6 +157,18 @@ public class WebchatController
 		    	}
 		    	model.addAttribute("User", user);
 		    	return "faq";
+		    }
+		    
+		    @RequestMapping(value = { "/contact" },method = RequestMethod.GET)
+		    public String addContact(ModelMap model) {
+		    	Kontakt contact = new Kontakt();
+		    	FAQItem faqItem = new FAQItem();
+		    	
+		    	model.addAttribute("User", getPrincipal());
+		    	model.addAttribute("contact", contact);
+		    	model.addAttribute("faqItem", faqItem);
+		    	
+		        return "contact";
 		    }
 		   
 		    private User getPrincipal(){

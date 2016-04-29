@@ -1,5 +1,6 @@
 package de.bonobo_talk.SpringMVCTest.service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -50,8 +51,22 @@ public class ChatroomServiceImpl implements ChatroomService {
 
 	@Override
 	public List<Chatroom> getAllChatrooms() {
-		// TODO Auto-generated method stub
-		return dao.getAllChatrooms();
+		// WORKAROUND: The dao returns the chatrooms several times if multiple user have joined
+		List<Chatroom> retList = new ArrayList<Chatroom>();
+		for (Chatroom chatroom : dao.getAllChatrooms()) {
+			boolean contains = false;
+			for (Chatroom chatroom2 : retList) {
+				if(chatroom2.getChatroomname() == chatroom.getChatroomname())
+				{
+					contains = true;
+				}
+			}
+			if(!contains)
+			{
+				retList.add(chatroom);
+			}
+		}
+		return retList;
 	}
 
 	@Override

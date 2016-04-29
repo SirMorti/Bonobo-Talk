@@ -12,7 +12,16 @@
     <br/>
     <br/>
     Gehe zurück zu <a href="<c:url value='index' />">Startseite</a>
-     
+    <span id="rdTimer"></span>
+    <script type="text/javascript">
+    	var timeout = 3;
+    	setInterval(function(){
+    		document.getElementById("rdTimer").innerHTML=timeout;
+    		if(timeout == 0){
+    			window.location.href = "index";
+    		}else timeout--;
+    	}, 1000)
+    </script> 
 </body>
  
 </html>
