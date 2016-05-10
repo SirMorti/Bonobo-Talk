@@ -59,6 +59,13 @@ var cp = "<%=request.getContextPath()%>";
 							</c:forEach>
 						</li>
 					</ul>
+					<h2>Chatraum erstellen</h2>
+					<form action="createChatroom" method="post">
+                        <input type="textInput1" name="chatroomName" placeholder="ChatroomName">                        
+                        <input type="textInput1" name="category" placeholder="Category">
+                        <input id="sendForm" type="submit" value="erstellen"/>
+                        <input type="hidden" name="${_csrf.parameterName}"   value="${_csrf.token}" />                                
+                    </form>
 				</div>
             </div>
     	</div>

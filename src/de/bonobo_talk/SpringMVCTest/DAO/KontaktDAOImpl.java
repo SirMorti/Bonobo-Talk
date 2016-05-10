@@ -44,6 +44,9 @@ public class KontaktDAOImpl extends AbstractDao<Integer, Kontakt> implements Kon
 	public Kontakt findKontaktByE_Mail(String e_mail) {
 		// TODO Auto-generated method stub
 		Criteria criteria = createEntityCriteria();
+		/*
+		 * add a criteria that restricts the entity to those with a equal e_mail
+		 */
         criteria.add(Restrictions.eq("E_MAIL", e_mail));
 		return (Kontakt) criteria.uniqueResult();
 	}

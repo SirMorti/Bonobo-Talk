@@ -37,19 +37,16 @@ public class ChatController
     	Chatroom chatroom1 = new Chatroom();
     	chatroom1.setChatroomname("Bonobo");
     	chatroom1.setMaxUser(64);
-    	chatroom1.setSsn("fuckingSsn");
     	chatroom1.setCategory("Affen");
     	
     	Chatroom chatroom3 = new Chatroom();
     	chatroom3.setChatroomname("Schimpanse");
     	chatroom3.setMaxUser(64);
-    	chatroom3.setSsn("Ssn");
     	chatroom3.setCategory("Affen");
     	
     	Chatroom chatroom2 = new Chatroom();
     	chatroom2.setChatroomname("Haters gonna hate Hibernate");
     	chatroom2.setMaxUser(64);
-    	chatroom2.setSsn("someStupidSsn");
     	chatroom2.setCategory("Andere");
     	
     	chatroomService.saveChatroom(chatroom1);
@@ -59,7 +56,10 @@ public class ChatController
         return "redirect:/chatselect";
     }
 	
-	
+	/*
+	 * takes care of the incoming Chatmessages and broadcasts them to the users in the specified chatroom
+	 * also adds a timestamp to the messages
+	 */
 	@MessageMapping("/chatroom{chatroomID}")
 	@SendTo("/topic/chat{chatroomID}")
 	public OutputChatMessage broadcast1(@DestinationVariable String chatroomID, ChatMessage chatMessage) throws Exception

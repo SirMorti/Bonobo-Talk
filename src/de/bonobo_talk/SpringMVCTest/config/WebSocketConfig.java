@@ -22,10 +22,17 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer
 	public void registerStompEndpoints(StompEndpointRegistry registry) 
 	{
 		// TODO Auto-generated method stub
+		//Fix the latest Chatroom for some reason gets not registered therfore its automatically added
+		int id = 0;
 		registry.addEndpoint("/chatroom").withSockJS();
 		for (Chatroom chatroom : chatroomService.getAllChatrooms()) {
 			registry.addEndpoint("/chatroom" + chatroom.getId()).withSockJS();
-		}		
+			if (id < chatroom.getId())
+			{
+				id = chatroom.getId();
+			}
+		}
+		registry.addEndpoint("/chatroom" + Integer.toString(id + 1)).withSockJS();
 	}
 	
 	@Override

@@ -39,14 +39,13 @@ public class ChatroomServiceImpl implements ChatroomService {
 		{
 			entity.setChatroomname(chatroom.getChatroomname());
 			entity.setMaxUser(chatroom.getMaxUser());
-			entity.setSsn(chatroom.getSsn());
 		}
 	}
 
 	@Override
-	public void deleteChatroomBySsn(String ssn) {
+	public void deleteChatroomById(int id) {
 		// TODO Auto-generated method stub
-		dao.deleteChatroomBySsn(ssn);
+		dao.deleteChatroomById(id);
 	}
 
 	@Override
@@ -70,19 +69,6 @@ public class ChatroomServiceImpl implements ChatroomService {
 	}
 
 	@Override
-	public Chatroom findChatroomBySsn(String ssn) {
-		// TODO Auto-generated method stub
-		return dao.findChatroomBySsn(ssn);
-	}
-
-	@Override
-	public boolean isChatroomSsnUnique(Integer id, String ssn) {
-		// TODO Auto-generated method stub
-		Chatroom chatroom = findChatroomBySsn(ssn);
-		return (chatroom == null || ((id != null) && (chatroom.getId() == id)));
-	}
-
-	@Override
 	public Set<String> getAllCategories() {
 		List<Chatroom> allChatrooms = getAllChatrooms();
 		Set<String> retList = new HashSet<String>();
@@ -95,6 +81,40 @@ public class ChatroomServiceImpl implements ChatroomService {
 		}
 		
 		return retList;
+	}
+
+	@Override
+	public boolean isUnique(String chatroomName) {
+		// TODO Auto-generated method stub
+		List<Chatroom> allChatrooms = getAllChatrooms();
+		boolean retValue = true;
+		for (Chatroom chatroom : allChatrooms) {
+			if (chatroom.getChatroomname() == chatroomName)
+			{
+				retValue = false;
+				break;
+			}
+		}
+		return retValue;
+	}
+
+	@Override
+	public boolean createNewChatroom(String chatroomName, int maxUser,	String category) {		
+		// TODO Auto-generated method stub
+		// abort if missing or illegel parameters
+		if( (chatroomName == null) || (chatroomName == "") || (maxUser < 16) || (category == null) || (category == "") || !isUnique(chatroomName))
+		{
+			return false;
+		}
+		
+		Chatroom tmpChatroom = new Chatroom();
+		tmpChatroom.setChatroomname(chatroomName);
+		tmpChatroom.setCategory(category);
+		tmpChatroom.setMaxUser(maxUser);
+		
+		saveChatroom(tmpChatroom);
+		
+		return true;
 	}
 
 }

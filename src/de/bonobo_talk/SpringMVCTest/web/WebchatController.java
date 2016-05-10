@@ -136,12 +136,14 @@ public class WebchatController
 		        {
 		        	return "redirect:/index";
 		        }
-		    	if(chatroomService.findById(chatroomId) == null)
+		        Chatroom tmpChatroom = chatroomService.findById(chatroomId);
+		    	if(tmpChatroom == null || tmpChatroom.getMaxUser() <= tmpChatroom.getActiveUser().size() )
 		    	{
 		    		return "redirect:/chatselect";
 		    	}
 		        service.leaveAllChatrooms(user);
-		    	service.joinChatroom(user.getId(), chatroomService.findById(chatroomId));
+		    	service.joinChatroom(user.getId(), tmpChatroom);
+		    	// chatroom wird neu aus der Datenbank geholt, damit der neue User in der Liste der beigetretenen User steht
 		    	model.addAttribute("Chatroom", chatroomService.findById(chatroomId));
 		    	model.addAttribute("User", user);
 		    	return "chat";
@@ -170,7 +172,23 @@ public class WebchatController
 		    	
 		        return "contact";
 		    }
+		    
+		    @RequestMapping(value = { "/createChatroom" }, method = RequestMethod.POST)
+		    public String createChatroom(@RequestParam("chatroomName") String chatroomName, @RequestParam("category") String category, ModelMap model) 
+		    {
+		    	User user = getPrincipal();
+		        if(user == null)
+		        {
+		        	return "redirect:/index";
+		        }
+		    	chatroomService.createNewChatroom(chatroomName, 32, category);
+		    	return "redirect:/chatselect";
+
+		    }
 		   
+		    /*
+		     * returns the current user
+		     */
 		    private User getPrincipal(){
 		        String userName = null;
 		        User user;

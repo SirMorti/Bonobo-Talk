@@ -26,10 +26,13 @@ public class ChatroomDAOImpl extends AbstractDao<Integer, Chatroom> implements C
 	}
 
 	@Override
-	public void deleteChatroomBySsn(String ssn) {
+	public void deleteChatroomById(int id) {
 		// TODO Auto-generated method stub
-        Query query = getSession().createSQLQuery("delete from Chatroom where ssn = :ssn");
-        query.setString("ssn", ssn);
+		//query to delete chatroom by ssn
+        Query query = getSession().createSQLQuery("delete from Chatroom where id = :id");
+        //replaces :id with the givenvalue
+        query.setString(id, Integer.toString(id));
+        //executes the sql query
         query.executeUpdate();
 	}
 
@@ -37,16 +40,10 @@ public class ChatroomDAOImpl extends AbstractDao<Integer, Chatroom> implements C
 	@Override
 	public List<Chatroom> getAllChatrooms() {
 		// TODO Auto-generated method stub
+		//creates criteria to select all chatroom objects
 		Criteria criteria = getSession().createCriteria(Chatroom.class);
+		//executes the criteria
         return (List<Chatroom>) criteria.list();
-	}
-
-	@Override
-	public Chatroom findChatroomBySsn(String ssn) {
-		// TODO Auto-generated method stub
-        Criteria criteria = createEntityCriteria();
-        criteria.add(Restrictions.eq("ssn", ssn));
-        return (Chatroom) criteria.uniqueResult();
 	}
 
 }

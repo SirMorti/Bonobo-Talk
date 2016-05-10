@@ -27,6 +27,9 @@ public class FAQItemDAOImpl extends AbstractDao<Integer, FAQItem> implements FAQ
 	@Override
 	public void deleteFAQItemById(int id) {
 		// TODO Auto-generated method stub
+		/*
+		 * query to search for an entry with a specific id
+		 */
 		Query query = getSession().createSQLQuery("delete from FAQITEM where FAQITEM_ID = :id");
         query.setString("id", Integer.toString(id));
         query.executeUpdate();
@@ -36,6 +39,9 @@ public class FAQItemDAOImpl extends AbstractDao<Integer, FAQItem> implements FAQ
 	@Override
 	public List<FAQItem> getAllFAQItems() {
 		// TODO Auto-generated method stub
+		/*
+		 * creates a criteria to get all entities of the type faqItem
+		 */
 		Criteria criteria = createEntityCriteria();
         return (List<FAQItem>) criteria.list();
 	}
@@ -44,6 +50,9 @@ public class FAQItemDAOImpl extends AbstractDao<Integer, FAQItem> implements FAQ
 	public List<FAQItem> findFAQItemByBetreff(String betreff) {
 		// TODO Auto-generated method stub
 		Criteria criteria = createEntityCriteria();
+		/*
+		 * restricts the criteria to only return those criterias that have a betreff values which contains the value of betreff
+		 */
         criteria.add(Restrictions.like("betreff", betreff));
 		return (List<FAQItem>) criteria.list();
 	}

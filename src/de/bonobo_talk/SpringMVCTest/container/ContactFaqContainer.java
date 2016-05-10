@@ -3,16 +3,27 @@ package de.bonobo_talk.SpringMVCTest.container;
 import de.bonobo_talk.SpringMVCTest.model.FAQItem;
 import de.bonobo_talk.SpringMVCTest.model.Kontakt;
 
+/*
+ * Kontainer Klasse um eine FAQ-Anfrage zu erstellen
+ */
 public class ContactFaqContainer 
 {
+	/*
+	 * Attribute für die Kontakt Klasse
+	 */
 	private String name;
 	private String firstname;
 	private String email;
 	
-	
+	/*
+	 * Attribute für die FAQItem Klasse
+	 */
 	private String subject;
 	private String message;
 	
+	/*
+	 * Erstellt einen neuen Kontakt auf Basis der Attribute und gibt diesen zurück
+	 */
 	public Kontakt getContact()
 	{
 		Kontakt contact = new Kontakt();
@@ -23,6 +34,9 @@ public class ContactFaqContainer
 		return contact;
 	}
 	
+	/*
+	 * Erstellt ein neues FAQItem auf Basis der Attribute und gibt dieses zurück
+	 */
 	public FAQItem getFAQItem()
 	{
 		FAQItem faqItem = new FAQItem();
@@ -32,6 +46,10 @@ public class ContactFaqContainer
 
 		return faqItem;
 	}
+	
+	/*
+	 * Getter und Setter Methoden
+	 */
 
 	public String getName() {
 		return name;

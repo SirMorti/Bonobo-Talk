@@ -1,5 +1,8 @@
 package de.bonobo_talk.SpringMVCTest.model;
 
+/*
+ * Klasse zur Defnition der einzelnen Rollen eines Accounts
+ */
 public enum AccountType {
     USER("USER"),
     DBA("DBA"),

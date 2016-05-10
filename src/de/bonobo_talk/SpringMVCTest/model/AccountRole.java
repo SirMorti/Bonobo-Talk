@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
  
+/*
+ * Klasse zur Rollenverwaltung der Einzelnen Accounts
+ */
 @Entity
 @Table(name="AccountRole")
 public class AccountRole {
