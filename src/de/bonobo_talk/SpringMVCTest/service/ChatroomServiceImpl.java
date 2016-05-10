@@ -89,7 +89,7 @@ public class ChatroomServiceImpl implements ChatroomService {
 		List<Chatroom> allChatrooms = getAllChatrooms();
 		boolean retValue = true;
 		for (Chatroom chatroom : allChatrooms) {
-			if (chatroom.getChatroomname() == chatroomName)
+			if (chatroom.getChatroomname().equals(chatroomName))
 			{
 				retValue = false;
 				break;
