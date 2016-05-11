@@ -38,15 +38,10 @@
         </div>
         <div id="contentContainer">
         	<div id="content">
-			<label id="Welcome">Willkommen bei Bonobo-Talk</label><br/>
-			<label id="Welcome">Dem Webchat der so ist wie DU es willst.</label><br/><br/>
-			<label id="MoreText">Registriere dich jetzt und chatte mit Leuten</label><br/>
-			<label id="MoreText">die sich für genau dasselbe wie du interessieren,</label><br/>
-			<label id="MoreText">denn bei Bonobo-Talk steht dir der Weg offen:</label><br/>
-			<label id="MoreText">Erstelle <label id="extra">deinen ganz eigenen Chat</label> und triff gleichgesinnte.</label><br/><br/>
-			<label id="MoreText">Ist das Affengeil? Nein, das ist <label id="extra">Bonobo-Talk!</label></label><br/><br/><br/>
-			<label id="MoreText">Viel Spaß beim chatten wünscht:</label><br/>
-			<label id="MoreText">Das Bonobo-Talk Team</label>
+			<label id="hello">Willkommen ${User.username}!</label><br/><br/>
+			<label id="further">Was möchtest du jetzt tun?</label><br/><br/><br/>
+			<a href="chatselect" id="linksStart">Ich würde jetzt gern chatten!</a><br/><br/>
+			<a href="faq" id="linksStart">Ich habe noch Fragen bezüglich des Chats!</a>
             </div>
     	</div>
         <div id="footer">
