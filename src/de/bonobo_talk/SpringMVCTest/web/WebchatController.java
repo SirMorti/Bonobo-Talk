@@ -110,6 +110,23 @@ public class WebchatController
 		    	model.addAttribute("User", user);
 		        return "profile";
 		    }
+		    @RequestMapping(value = { "/updateProfile" }, method = RequestMethod.GET)
+		    public String updateProfile(ModelMap model) {
+		        User User = getPrincipal();
+		        model.addAttribute("User", User);
+		        model.addAttribute("edit", false);
+		        return "updateProfile";
+		    }
+		    
+		    @RequestMapping(value = { "/updateProfile" }, method = RequestMethod.POST)
+		    public String saveProfile(@Valid @ModelAttribute("User") User User, BindingResult result,
+		            ModelMap model) {
+		         
+		        service.saveOrUpdateUser(User);
+		 
+		        model.addAttribute("success", "User " + User.getUsername() + " updated successfully");
+		        return "success";
+		    }
 		    
 		    @RequestMapping(value = { "/chatselect" }, method = RequestMethod.GET)
 		    public String selectChatroom(ModelMap model) {
@@ -193,7 +210,7 @@ public class WebchatController
 		        String userName = null;
 		        User user;
 		        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		        //TODO: müll nach username suchen
+		        //TODO: mÃ¼ll nach username suchen
 		        if (principal instanceof UserDetails) {
 		            userName = ((UserDetails)principal).getUsername();
 		            user = service.findUserByUsername(userName);
