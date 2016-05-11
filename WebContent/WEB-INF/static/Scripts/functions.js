@@ -70,4 +70,46 @@ $(document).ready(function(){
         if(! mouseInside) $("#drdwSettings").hide();
     });
 	
-});
+	$("#myForm").validate({
+	      
+        // Specify the validation rules
+        rules: {
+            firstname: "required",
+            lastname: "required",
+            username: {
+            	required: true,
+            	minlength: 3,
+            	maxlength: 15
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true,
+                minlength: 5
+        },
+        dob: {
+            required: true,
+            date: true,
+    },
+        
+        // Specify the validation error messages
+        messages: {
+            firstname: "Please enter your first name",
+            lastname: "Please enter your last name",
+            password: {
+                required: "Please provide a password",
+                minlength: "Your password must be at least 5 characters long"
+            },
+            email: "Please enter a valid email address"
+        },
+        tooltip_options: {
+        	firstname: {trigger:'focus'},
+        	lastname: {placement:'right',html:true}
+        	},
+        }
+        });
+    
+    });
+	
