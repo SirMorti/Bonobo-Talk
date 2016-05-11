@@ -29,7 +29,7 @@
                     <div id="account">
                         <img id="profilePic" src="${cp}/static/Pictures/Default.jpg" alt="ProfilePic"/>
                         <span id="helper"></span>
-                        <a id="accLink" href="">${User.username}</a>     	
+                        <a id="accLink" href="profile">${User.username}</a>     	
                     </div>
                 </div>
             </div>
