@@ -203,6 +203,17 @@ public class WebchatController
 
 		    }
 		   
+		    @RequestMapping(value = { "/imprint" }, method = RequestMethod.GET)
+		    public String showImprint(ModelMap model) {
+		        User user = getPrincipal();
+		        if(user != null)
+		        {
+		        	service.leaveAllChatrooms(user);
+		        }
+		    	model.addAttribute("User", user);
+		        return "imprint";
+		    }
+		    
 		    /*
 		     * returns the current user
 		     */
