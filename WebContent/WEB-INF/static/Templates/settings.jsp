@@ -9,7 +9,7 @@
 </head>
 <body>
 	<ul id="settingsList">
-		<li><a href="">Profil bearbeiten</a></li>
+		<li><a href="updateProfile">Profil bearbeiten</a></li>
 		<li><hr></li>
         <li><a href="logout">Logout</a></li>
 	</ul>
