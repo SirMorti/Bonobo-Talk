@@ -8,6 +8,7 @@
 <meta charset="utf-8">
 <title>Bonobo-Talk</title>
 <script type="text/javascript">var cp = "<%=request.getContextPath()%>";</script>
+<link rel="stylesheet" href="${cp}/static/Styles/Home.css">
 <link rel="stylesheet" href="${cp}/static/Styles/Style.css">
 <link rel="stylesheet" href="${cp}/static/Styles/Navigation.css">
 <link rel="stylesheet" href="${cp}/static/Styles/Colors.css">
@@ -37,7 +38,15 @@
         </div>
         <div id="contentContainer">
         	<div id="content">
-
+			<label id="Welcome">Willkommen bei Bonobo-Talk</label><br/>
+			<label id="Welcome">Dem Webchat der so ist wie DU es willst.</label><br/><br/>
+			<label id="MoreText">Registriere dich jetzt und chatte mit Leuten</label><br/>
+			<label id="MoreText">die sich für genau dasselbe wie du interessieren,</label><br/>
+			<label id="MoreText">denn bei Bonobo-Talk steht dir der Weg offen:</label><br/>
+			<label id="MoreText">Erstelle <label id="extra">deinen ganz eigenen Chat</label> und triff gleichgesinnte.</label><br/><br/>
+			<label id="MoreText">Ist das Affengeil? Nein, das ist <label id="extra">Bonobo-Talk!</label></label><br/><br/><br/>
+			<label id="MoreText">Viel Spaß beim chatten wünscht:</label><br/>
+			<label id="MoreText">Das Bonobo-Talk Team</label>
             </div>
     	</div>
         <div id="footer">
