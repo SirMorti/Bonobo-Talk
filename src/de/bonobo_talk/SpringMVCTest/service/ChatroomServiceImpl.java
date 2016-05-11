@@ -91,8 +91,7 @@ public class ChatroomServiceImpl implements ChatroomService {
 		for (Chatroom chatroom : allChatrooms) {
 			if (chatroom.getChatroomname().equals(chatroomName))
 			{
-				retValue = false;
-				break;
+				return false;
 			}
 		}
 		return retValue;
@@ -106,14 +105,15 @@ public class ChatroomServiceImpl implements ChatroomService {
 		{
 			return false;
 		}
-		
+		else
+		{
 		Chatroom tmpChatroom = new Chatroom();
 		tmpChatroom.setChatroomname(chatroomName);
 		tmpChatroom.setCategory(category);
 		tmpChatroom.setMaxUser(maxUser);
 		
 		saveChatroom(tmpChatroom);
-		
+		}
 		return true;
 	}
 

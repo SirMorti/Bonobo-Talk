@@ -27,65 +27,7 @@ public class FAQController {
 	@Autowired
 	private KontaktService kontaktService;
 	
-	@RequestMapping(value = { "/testFAQ" }, method = RequestMethod.GET)
-    public String testFAQ(ModelMap model) {
- 
-		FAQItem item1 = new FAQItem();
-		item1.setBetreff("Test FAQ");
-		item1.setInhalt("Dies ist eine Testfrage");
-		
-		FAQItem item2 = new FAQItem();
-		item2.setBetreff("Luzifer");
-		item2.setInhalt("Testantwort Yea Yea");
-		item2.setFrage(item1);
-		
-		FAQItem item3 = new FAQItem();
-		item3.setBetreff("Beelzebub");
-		item3.setInhalt("LOLOLOLO wir sind so toll");
-		item3.setFrage(item1);
-		
-		Kontakt kontakt1 = new Kontakt();
-		kontakt1.setE_mail("somemail@mail.de");
-		kontakt1.setName("Max");
-		kontakt1.setVorname("Mustermann");
-		
-		Kontakt kontakt2 = new Kontakt();
-		kontakt2.setE_mail("othermaill@mail.de");
-		kontakt2.setName("Karl");
-		kontakt2.setVorname("Muster");
-		
-		Kontakt kontakt3 = new Kontakt();
-		kontakt3.setE_mail("trial@extrem.de");
-		kontakt3.setName("Lisa");
-		kontakt3.setVorname("Kaluch");
-		
-		
-		//kontaktService.saveKontakt(kontakt1);
-		//kontaktService.saveKontakt(kontakt2);
-		//kontaktService.saveKontakt(kontakt3);
-		
-		item1.setKontakt(kontakt1);
-		item2.setKontakt(kontakt2);
-		item3.setKontakt(kontakt3);
-		
-		faqService.saveOrUpdateFAQItem(item1);
-		faqService.saveOrUpdateFAQItem(item2);		
-		faqService.saveOrUpdateFAQItem(item3);
-		
-		faqService.addAntwort(item1, item2);
-		faqService.addAntwort(item1, item3);
-		
-		//faqService.deleteFAQItemById(item3.getId());
-		//kontaktService.deleteKontaktById(kontakt1.getId());
-		
-		List<FAQItem> test = (List<FAQItem>) faqService.findFAQItemByBetreff("Luzifer");
-		for (FAQItem faqItem : test) 
-		{
-			faqItem.debug();
-		}
-		
-		return "redirect:faq";
-    }
+	
 	
     @RequestMapping(value = { "/contact" },method = RequestMethod.POST)
     public String newContactFAQ( ContactFaqContainer container,
@@ -113,13 +55,7 @@ public class FAQController {
     	
         return "redirect:/faq";
     }
-/*    
-    @RequestMapping(value = {"/faq"}, method = RequestMethod.GET)
-    public String showFAQ(ModelMap model)
-    {
-    	return "faq";
-    }
-*/    
+
     @RequestMapping(value = {"/showTicket"}, method = RequestMethod.GET)
     public String showTicket(ModelMap model)
     {

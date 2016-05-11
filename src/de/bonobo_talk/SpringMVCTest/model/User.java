@@ -215,6 +215,10 @@ public class User {
 		this.accountRoles = accountRoles;
 	}
 
-     
+     public String toString()
+     {
+    	 return "User [id=" + id + ", username=" + username + ", firstname=" + firstname + ", lastname= " + lastname + 
+    			 ", email=" + email + ", gender=" + gender + "]";
+     }
 }
 

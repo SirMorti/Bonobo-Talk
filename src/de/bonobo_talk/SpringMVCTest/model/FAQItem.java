@@ -85,11 +85,9 @@ public class FAQItem
 		this.antworten = antworten;
 	}
 	
-	public void debug()
+	public String toString()
 	{
-		System.out.println("ID: " + this.id);
-		System.out.println("Betreff: " + this.betreff);
-		System.out.println("Inhalt: " + this.inhalt);
-		System.out.println("Autor: " + this.kontakt.getE_mail());
+		return "FAQItem [id=" + id + ", betreff=" + betreff + ", inhalt="
+                + inhalt + ", kontaktId=" + kontakt.getId() + ", frageId=" + frage.getId() +"]";
 	}
 }

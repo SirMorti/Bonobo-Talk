@@ -96,6 +96,6 @@ public class Chatroom
     @Override
     public String toString() {
         return "Chatroom [id=" + id + ", chatroomname=" + chatroomname + ", maxUser="
-                + maxUser + "]";
+                + maxUser + ", category=" + category +"]";
     }
 }

@@ -56,4 +56,9 @@ public class Kontakt
 	public void setE_mail(String e_mail) {
 		this.e_mail = e_mail;
 	}
+	
+	public String toString()
+	{
+		return "Kontakt [id= " + id +", name=" + name + ", vorname=" + vorname + ", eMail=" + e_mail +"]";
+	}
 }

@@ -21,40 +21,10 @@ import de.bonobo_talk.SpringMVCTest.service.ChatroomService;
 @RequestMapping("/")
 public class ChatController 
 {
-/*	
-	@RequestMapping(value = "/chat", method = RequestMethod.GET)
-	public String viewChat()
-	{
-		return "chat";
-	}
-*/	
+	
 	@Autowired
 	ChatroomService chatroomService;
 	
-    @RequestMapping(value = { "/generateChatrooms" }, method = RequestMethod.GET)
-    public String generateChatrooms(ModelMap model) {
-        
-    	Chatroom chatroom1 = new Chatroom();
-    	chatroom1.setChatroomname("Bonobo");
-    	chatroom1.setMaxUser(64);
-    	chatroom1.setCategory("Affen");
-    	
-    	Chatroom chatroom3 = new Chatroom();
-    	chatroom3.setChatroomname("Schimpanse");
-    	chatroom3.setMaxUser(64);
-    	chatroom3.setCategory("Affen");
-    	
-    	Chatroom chatroom2 = new Chatroom();
-    	chatroom2.setChatroomname("Haters gonna hate Hibernate");
-    	chatroom2.setMaxUser(64);
-    	chatroom2.setCategory("Andere");
-    	
-    	chatroomService.saveChatroom(chatroom1);
-    	chatroomService.saveChatroom(chatroom2);
-    	chatroomService.saveChatroom(chatroom3);
-    	
-        return "redirect:/chatselect";
-    }
 	
 	/*
 	 * takes care of the incoming Chatmessages and broadcasts them to the users in the specified chatroom
