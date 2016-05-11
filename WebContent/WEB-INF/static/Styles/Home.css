@@ -1,6 +1,34 @@
 @charset "utf-8";
 /* CSS Document */
 
+div#content{
+	padding-left: 40px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+label#Welcome{
+	font-weight: bold;
+	font-size: 18px;
+}
+
+label#MoreText{
+	font-size: 18px;
+}
+
+label#extra{
+	font-weight: bold;
+}
+
+label#hello{
+	font-size: 24px;
+	font-weight: bold;
+}
+
+a#linksStart{
+	font-weight: bold;
+}
+
 div#imageContainer>img{
 	position: absolute;
 	top: 0;
